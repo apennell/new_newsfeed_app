@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var pg = require("pg");
+var pg = require('pg');
 
 var app = express();
 
@@ -11,7 +11,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 var db = require("./models");
 
 app.get('/articles', function(req,res) {
-  console.log("GET /articles");
+  db.Article.all().then(function(articles) {
+    res.render('articles/index', {articlesList: articles});
+  });
 });
 
 app.get('/articles/new', function(req,res) {
@@ -19,13 +21,23 @@ app.get('/articles/new', function(req,res) {
 });
 
 app.post('/articles', function(req,res) {
-  console.log(req.body);
+
+  console.log("\n\n\n\n\n\nTHIS IS ARTICLES", articles);
+
+  db.Article.create({title: req.body.title, author: req.body.author, content: req.body.content})
+  	.then(function(articles) {
+  		res.redirect('/articles');
+  	});
 });
 
 app.get('/articles/:id', function(req, res) {
-  console.log(req.body);
+  var articleId = req.params.id;
   
-})
+  db.Article.find(articleId)
+  	.then(function(article) {
+  	  res.render('article', {articleToDisplay: article});
+  	});
+});
 
 app.get('/', function(req,res) {
   res.render('site/index.ejs');
