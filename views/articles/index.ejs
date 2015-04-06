@@ -2,15 +2,28 @@
 <!DOCTYPE HTML>
 <html>
 <body>
-<h1>Articles index</h1>
-<% articlesList.forEach(function(article) { %>
-<div>
-  <a href="/articles/<%= article.id %>"><%= article.title%></a>
-  <div>
-    <%= article.content %>
-  </div>
-</div>
-<% }) %>
+	<h1><i>Daily Planet</i></h1>
+	<h1>News</h1>
+	<% articlesList.forEach(function(article) { %>
+	<div>
+	  <a href="/articles/<%= article.id %>"><strong><%= article.title%></strong></a>
+	  <div>
+	    <%= article.content %>
+	  </div>
+	  <br>
+	</div>
+	<% }) %>
+	<br><br>
+	<div>
+	  <div>You be the source!</div>
+	  <a href="/articles/new"><i>Write a new article</i></a>
+	</div>
+	<br><br><br>
+	<a href="/">Home</a>
+	<br>
+	<a href="/about">About</a>
+	<br>
+	<a href="/contact">Contact</a>
 </body>
 </html>
 

@@ -6,13 +6,21 @@
   </head>
   <body>
 
-    <h1>Add an article</h1>
+    <h1><i>Daily Planet</i></h1>
+    <h2>Add an article</h2>
     <form method="post" action="/articles">
-      <input type="text" name="article[title]" placeholder="Article title"><br />
-      <input type="text" name="article[author]" placeholder="Article author"><br />
-      <textarea name="article[content]"></textarea><br />
+      <input type="text" name="title" placeholder="Article title"><br /><br>
+      <input type="text" name="author" placeholder="Article author"><br /><br>
+      <textarea name="content"></textarea><br />
       <button>Save </button>
     </form>
-
+    <br><br><br>
+    <a href="/">Home</a>
+    <br>
+    <a href="/articles">News</a>
+    <br>
+    <a href="/about">About</a>
+    <br>
+    <a href="/contact">Contact</a>
   </body>
 </html>

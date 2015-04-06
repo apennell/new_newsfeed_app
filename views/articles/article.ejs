@@ -2,12 +2,10 @@
 <!DOCTYPE HTML>
 <html>
 <body>
-<h1>Article: <%= articleToDisplay.title %></h1>
+<h1><%= articleToDisplay.title %></h1>
 <div>
-  <ul>
-  	<li>Author: <%= articleToDisplay.author  %></li>
-  	<li>Content: <%= articleToDisplay.content  %></li>
-  </ul>
+  <p><strong>By <%= articleToDisplay.author  %></strong></p>
+  <p> <%= articleToDisplay.content  %></p>
 </div>
 </body>
 </html>
